@@ -1,0 +1,37 @@
+
+<% if (locals.shortURL) { %>
+    <% for (let i = linkler.length - 1; i >= 0; i--) { %>
+        <div class="bg-white rounded flex justify-between mt-2 p-2 px-5">
+            <div class="py-2 font-medium"><%= linkler[i].original_link %></div>
+            <div class="flex gap-4">
+                <div class="py-2 text-cyan font-medium"><%= linkler[i].full_short_link %></div>
+                <button class=" bg-cyan hover:bg-dark-cyan text-white py-2 px-4 rounded-md" onclick="copyLink('<%= linkler[i].full_short_link %>')">Copy</button>
+            </div>
+        </div>
+    <% } %>
+<% } %>
+<div class="flex mb-24"></div>
+<script>
+    const inputField = document.querySelector("#name");
+    const errorMessage = document.querySelector("#error-message");
+    document.querySelector("form").addEventListener("submit", function(event) {
+
+        if (inputField.value.trim() === "") {
+            errorMessage.textContent = "Please add a link";
+            errorMessage.style.display = "block";
+            errorMessage.style.color = "red"; // Hata mesajını görünür hale getirir
+            event.preventDefault(); // Formun gönderilmesini engeller
+        } else {
+            errorMessage.textContent = ""; // Hata mesajını temizler
+            errorMessage.style.display = "none"; // Hata mesajını gizler
+        }
+    });
+    function copyLink(link) {
+    const textarea = document.createElement('textarea');
+    textarea.value = link;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+}
+</script>

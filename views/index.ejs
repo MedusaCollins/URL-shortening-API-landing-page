@@ -4,23 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/output.css">
-    <title>Document</title>
+    <link rel="shortcut icon" href="/images/favicon-32x32.png" type="image/x-icon">
+    <title>Shortly URL shorter</title>
 </head>
-<body class="bg-green-300">
-    <form action="/submit" method="POST">
-        <input type="text" id="name" name="name" placeholder="Shorten a link here..." required><br><br>
-        <button type="submit" class="btn">Shorten It!</button>
-    </form>
+<body class="relative overflow-x-hidden">
+    <div class="mx-auto max-w-[1000px] mt-12 bg-white"> 
+        <%- include("partials/header.ejs") %>
+        <%- include("partials/hero.ejs") %>
+    </div>
+    <%- include("partials/link.ejs") %>
+    <div class="bg-[#eff1f7]" id="scrollTarget">
+        <div class="mx-auto max-w-[1000px] pt-24"> 
+            <%- include("partials/linkshorter.ejs") %>
+            <%- include("partials/advencedstatistics.ejs") %>
+        </div>
+        <div class="mx-auto text-center self-center">
+            <%- include("partials/boostlink.ejs") %>
+            <%- include("partials/footer.ejs") %>
+        </div>
+    </div>
 
-    <% if(locals.shortURL) {%>
-        <p>url var</p>
-    <%}else{%>
-        <p>url yok</p>
-    <%}%>
-    <% if(locals.error) {%>
-        <p><%= error %></p>
-    <%}else{%>
-        <p>hata yok</p>
-    <%}%>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const scrollButtons = document.getElementsByClassName("scrollButton");
+            const scrollTarget = document.getElementById("scrollTarget");
+
+            for (const scrollButton of scrollButtons) {
+                scrollButton.addEventListener("click", function () {
+                    // Hedefin yukarıdan ne kadar aşağıda olduğunu alın
+                    const targetOffsetTop = scrollTarget.offsetTop;
+
+                    // Sayfayı hedefin üstüne kaydırın
+                    window.scrollTo({
+                        top: targetOffsetTop,
+                        behavior: "smooth", // Yavaşça kaydırma
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
