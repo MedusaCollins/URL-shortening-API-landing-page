@@ -1,12 +1,21 @@
 
+
+
+
 <% if (locals.shortURL) { %>
     <% for (let i = linkler.length - 1; i >= 0; i--) { %>
-        <div class="bg-white rounded flex justify-between mt-2 p-2 px-5">
-            <div class="py-2 font-medium"><%= linkler[i].original_link %></div>
-            <div class="flex gap-4">
-                <div class="py-2 text-cyan font-medium"><%= linkler[i].full_short_link %></div>
-                <button class=" bg-cyan hover:bg-dark-cyan text-white py-2 px-4 rounded-md" onclick="copyLink('<%= linkler[i].full_short_link %>')">Copy</button>
+        <div class="bg-white rounded flex md:flex-row flex-col justify-between mt-2 p-2 mx-5">
+            <div class="py-2 font-medium overflow-hidden overflow-ellipsis whitespace-nowrap">
+                <%= linkler[i].original_link %>
             </div>
+            <div class="border-t border-dark-gray"></div>
+            <div class="flex gap-4">
+                <div class="py-2 text-cyan font-medium overflow-hidden overflow-ellipsis whitespace-nowrap">
+                    <%= linkler[i].full_short_link %>
+                </div>
+                <button class="bg-cyan hover:bg-dark-cyan text-white py-2 px-4 rounded-md md:flex hidden" onclick="copyLink('<%= linkler[i].full_short_link %>')">Copy</button>
+            </div>
+            <button class="bg-cyan hover:bg-dark-cyan text-white py-2 px-4 rounded-md flex md:hidden" onclick="copyLink('<%= linkler[i].full_short_link %>')">Copy</button>
         </div>
     <% } %>
 <% } %>

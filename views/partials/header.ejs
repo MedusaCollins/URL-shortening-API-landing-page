@@ -1,4 +1,46 @@
 <div id="navbar" class="flex justify-between h-12 py-2 px-5 text-center font-medium text-dark-gray">
-    <div class="flex gap-5 my-auto"><p class="font-bold text-black text-2xl -my-2">Shortly</p><p class="hover:text-black cursor-pointer">Features</p><p class="hover:text-black cursor-pointer">Pricing</p><p class="hover:text-black cursor-pointer">Resources</p></div>
-    <div class="flex gap-5 h-full"><button class="px-8 rounded-2xl hover:text-dark-cyan ">Login</button><button class="bg-cyan hover:bg-dark-cyan text-white px-8 rounded-2xl">Sign Up</button></div>
+        <div class="flex gap-5 my-auto"><p class="font-bold text-black text-2xl -my-2">Shortly</p>
+            <p class="hover:text-black cursor-pointer hidden sm:flex">Features</p><p class="hover:text-black cursor-pointer hidden sm:flex">Pricing</p><p class="hover:text-black cursor-pointer hidden sm:flex">Resources</p></div>
+            <div class="flex gap-5 h-full">
+                <button id="mobile-menu-button" class="flex sm:hidden text-black">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+                <button class="px-8 rounded-2xl hover:text-dark-cyan hidden sm:flex">Login</button>
+                <button class="bg-cyan hover:bg-dark-cyan text-white px-8 rounded-2xl hidden sm:flex">Sign Up</button></div>
 </div>
+
+<div id="mobile-menu-container" class="relative z-30">
+    <div id="mobile-menu" class="w-[90%] z-30 justify-center my-5 p-5 bg-grayish-violet text-white rounded-xl absolute left-1/2 transform -translate-x-1/2" style="display: none;">
+       <ul class="w-full">
+            <li><a href="#" class="block w-full text-center py-2">Features</a></li>
+            <li><a href="#" class="block w-full text-center py-2">Pricing</a></li>
+            <li><a href="#" class="block w-full text-center py-2">Resources</a></li>
+            <li class="border-t border-dark-gray my-2 "></li>
+            <li><a href="#" class="block w-full text-center py-2">Login</a></li>
+            <li><a href="#" class="block w-full text-center py-2 bg-cyan hover:bg-dark-cyan rounded-2xl">Sign Up</a></li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    // Düğmeye tıklama olayını dinleyin
+    mobileMenuButton.addEventListener("click", function () {
+        // Menüyü aç veya kapat
+        if (mobileMenu.style.display === "none") {
+            mobileMenu.style.display = "flex";
+        } else {
+            mobileMenu.style.display = "none";
+        }
+    });
+});
+</script>
