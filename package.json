@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tailwind": "npx tailwindcss build public/styles/input.css -o public/styles/output.css --watch",
-    "server": "nodemon index.js"
+    "build": "node index.js"
   },
   "author": "Enes Ceylan",
   "license": "ISC",
