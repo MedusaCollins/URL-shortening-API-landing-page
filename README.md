@@ -1,7 +1,7 @@
 # More than just shorter links
 Build your brand’s recognition and get detailed insights on how your links are performing.
 <p align="center">
-  <img src="https://github.com/MedusaCollins/URL-shortening-API-landing-page/assets/63819815/0067b33d-4b7c-4312-9773-506f7a9b807a" alt="Project Image" width="600" />
+  <img src="https://github.com/MedusaCollins/URL-shortening-API-landing-page/blob/main/public/design/desktop-preview.jpg" alt="Project Image" width="600" />
 </p>
 
 ### Project Inspiration
